@@ -19,7 +19,7 @@ const Homelayout = () => {
     }
 
     return (
-        <div className='bg-primarycolor h-full w-full'>
+        <div className='bg-primarycolor h-full w-full relative'>
             {
                 showSearch ? (
                     <div className='w-full flex-col items-center h-screen space-y-4 overflow-y-hidden'>
