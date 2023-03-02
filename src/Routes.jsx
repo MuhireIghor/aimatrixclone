@@ -1,11 +1,10 @@
-import React from 'react';
+import React,{lazy} from 'react';
 import {useRoutes} from 'react-router-dom'
 import Aboutus from './components/About/Aboutus';
 import Contacts from './components/contacts/Contacts';
 import Maincomponent from './components/Maincomponent';
 import Notfoundpage from './components/Notfoundpage';
-import Homelayout from './layouts/Homelayout';
-
+const Homelayout = lazy(()=>import('./layouts/Homelayout'))
 const Routes = () => {
   return useRoutes([{
     path:"/",
