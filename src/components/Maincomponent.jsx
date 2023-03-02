@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillPlayFill, BsArrowRight, BsTwitter, BsInstagram, BsDiscord } from 'react-icons/bs';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
@@ -9,6 +9,7 @@ import { aboutLinks, steps } from '../data/utils';
 import Partners from './Partners';
 import Mission from './Mission';
 import Aboutus from './Aboutus';
+import Screensize from './Screensize';
 
 const Maincomponent = () => {
     const [showVideo, setShowVideo] = useState(false);
@@ -32,6 +33,7 @@ const Maincomponent = () => {
     const toggleQuestion = (name) => {
         setActiveQuestion(name);
     }
+
     return (
         <div className='space-y-24'>
             {/* movement begun */}
@@ -155,9 +157,9 @@ const Maincomponent = () => {
 
                 </div>
             </div>
-
+            <Screensize />
             {/* News letter */}
-       
+
 
         </div >
     )
