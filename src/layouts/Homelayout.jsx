@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState,useEffect} from 'react'
 import { Outlet } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import { MdOutlineCancel } from 'react-icons/md'
@@ -11,13 +11,30 @@ import goBack from '../assets/goback.webp'
 import Mission from '../components/Mission'
 import Aboutus from '../components/Aboutus'
 import Partners from '../components/Partners'
+import Screensize from '../components/Screensize'
 
 const Homelayout = () => {
+    const [scroll, setScroll] = useState(false);
+    const [screenHeight,setScreenHeight] = useState(0);
     const { showSearch, openModal, closeModal } = useContext(SearchContext);
     const handleClose = () => {
         closeModal();
     }
+  useEffect(()=>{
+    const handleScroll = ()=>{  
+        if(window.scrollY>240){
+       setScroll(true);
+       console.log("wowow");
+        }else{
+            setScroll(false);
+        }
 
+    }
+    document.addEventListener("scroll",handleScroll);
+    return()=>{
+        document.removeEventListener("scroll",handleScroll)
+    }
+  },[])
     return (
         <div className='bg-primarycolor h-full w-full relative'>
             {
@@ -42,19 +59,22 @@ const Homelayout = () => {
 
                     </div>
                 ) : (
-                    <>
+                    <div className='relative'>
+                        <div className={` flex-col space-y-12 ${scroll && 'fixed w-full z-20 bg-primarycolor space-y-4 '}`}>
                         <AdvertTab />
-                        <div className='py-8 flex-col space-y-12'>
                             <Logos />
                             <Navbar />
                         </div>
                         <Outlet />
                         <Mission />
-            <Aboutus />
-            <div>
-                <Partners />
-            </div>
-                    </>
+                        <Aboutus />
+                        <div>
+                            <Partners />
+                        </div>
+                        <div className='fixed w-full bottom-4 z-20'>
+                            <Screensize />
+                        </div>
+                    </div>
                 )
             }
         </div>
