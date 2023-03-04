@@ -68,9 +68,9 @@ const Screensize = () => {
   }
     , [countries])
   return (
-    <div className='bg-linkColor opacity-30 w-full flex flex-row-reverse justify-between p-4 '>
+    <div className='bg-linkColor opacity-20 w-full flex flex-row-reverse justify-between p-4 '>
       <div
-        className={`rounded-full w-12 h-12 border-2 border-black animate-bounce bg-[yellow] bg-10%`}
+        className={`rounded-full w-12 h-12 border-2 border-[yellow] animate-bounce bg-[yellow] bg-10%`}
       ></div>
     </div>
   )
