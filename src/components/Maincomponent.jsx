@@ -157,10 +157,6 @@ const Maincomponent = () => {
 
                 </div>
             </div>
-            <Screensize />
-            {/* News letter */}
-
-
         </div >
     )
 }
